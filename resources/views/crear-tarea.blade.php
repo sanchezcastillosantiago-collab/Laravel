@@ -7,7 +7,7 @@
 </head>
 <body>
      <h1>Crear Tarea</h1>
-  <form action=""  method="POST">
+  <form action="{{ route('tarea.store') }}"  method="POST">
     @csrf
     <label for="titulo">Título:</label><br><br>
     <input type="text" id="titulo" name="titulo" >

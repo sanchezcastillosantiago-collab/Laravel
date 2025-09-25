@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TareaController;
+use App\Models\Tarea;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use Illuminate\Http\Request;
@@ -9,17 +11,13 @@ Route::get('/', function () {
 })->name('home');
 
 //////////////////////////////////////
-Route::get('tarea', function () {
-    return view('lista-tareas');
-});
 
-Route::get('tarea/crear', function () {
-    return view('crear-tarea');
-});
+Route::resource('tarea', TareaController::class);
+/*Route::get('tarea',[TareaController::class,'index']);
 
+Route::get('tarea/crear', [TareaController::class,'create']);
 
-Route::post('tarea/crear', function (Request $request) {
-   
+Route::post('tarea/crear', [TareaController::class,'store']);*/
     //dd($request->all(),$request->titulo, $request->descripcion);
     //Recibir informacion del formulario
 
@@ -32,7 +30,6 @@ Route::post('tarea/crear', function (Request $request) {
 
 
     //return 'Tarea Creada';
-});
 
 //////////////////////////////////////
 Route::view('dashboard', 'dashboard')

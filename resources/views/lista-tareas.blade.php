@@ -8,6 +8,12 @@
 <body>
     
 <h1>Lista de Tarea</h1>
-
+<ul>
+    @foreach($tareas as $tarea)
+        <li>
+            ID:{{ $tarea->id }} <strong>{{ $tarea->titulo }}</strong><br>
+            {{ $tarea->descripcion }}
+        </li>
+    @endforeach
 </body>
 </html>
