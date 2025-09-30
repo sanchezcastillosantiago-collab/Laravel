@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Tarea extends Model
 {
     public $timestamps = false;
+    
+    protected $fillable = [
+        'titulo',
+        'descripcion'
+    ];
 }

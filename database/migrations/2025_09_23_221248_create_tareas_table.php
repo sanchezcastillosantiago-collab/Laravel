@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tareas', function (Blueprint $table) {
-            //$table->id();
-           // $table->timestamps();
+            $table->id();
             $table->string('titulo');
             $table->text('descripcion');
+            // $table->timestamps(); // Mantenemos comentado ya que el modelo tiene $timestamps = false
             //$table->text('comentarios');
 
         });

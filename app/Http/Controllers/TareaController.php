@@ -63,7 +63,16 @@ class TareaController extends Controller
      */
     public function update(Request $request, Tarea $tarea)
     {
-        //
+        $request->validate([
+            'titulo' => 'required|string|max:255',
+            'descripcion' => 'required|string'
+        ]);
+
+        $tarea->titulo = $request->titulo;
+        $tarea->descripcion = $request->descripcion;
+        $tarea->save();
+
+        return redirect()->route('tarea.show', $tarea->id)->with('success', 'Tarea actualizada correctamente');
     }
 
     /**
