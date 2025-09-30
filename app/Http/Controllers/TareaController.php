@@ -39,7 +39,7 @@ class TareaController extends Controller
         //$tarea->comentarios=$request->comentarios;
         $tarea->save();
 
-        return redirect()->route('tarea.index');
+        return redirect()->route('tarea.show', $tarea->id);
     }
 
     /**
@@ -47,7 +47,7 @@ class TareaController extends Controller
      */
     public function show(Tarea $tarea)
     {
-        //
+       return view('ver-tarea', compact('tarea'));
     }
 
     /**
@@ -55,7 +55,7 @@ class TareaController extends Controller
      */
     public function edit(Tarea $tarea)
     {
-        //
+       return view('editar-tarea', compact('tarea'));
     }
 
     /**
@@ -71,6 +71,7 @@ class TareaController extends Controller
      */
     public function destroy(Tarea $tarea)
     {
-        //
+        $tarea->delete();
+        return redirect()->route('tarea.index');
     }
 }
